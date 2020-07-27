@@ -1,5 +1,8 @@
+import sys
+sys.path.append('../')
+
 from datetime import datetime
-from userCookBook import UserCookBook
+from .userCookBook import UserCookBook
 
 class User:
     """

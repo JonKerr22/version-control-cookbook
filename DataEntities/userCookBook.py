@@ -1,4 +1,4 @@
-from fullRecipe import FullRecipe
+from .fullRecipe import FullRecipe
 from datetime import datetime
 
 class UserCookBook:

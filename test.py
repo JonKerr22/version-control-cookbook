@@ -1,24 +1,33 @@
+import sys
+sys.path.append('../')
+
+
 import numpy as np
 import git 
 import pathlib
+
+from DataEntities.users import User
+from DataEntities.userCookBook import UserCookBook
+from DataEntities.fullRecipe import FullRecipe
+from DataEntities.recipeEntry import RecipeEntry
+
 
 arr = np.array([1,2,3,4,5])
 #print(arr)
 
 ms = True
-#print("hello world")
+print("hello world")
 
 
-
+""" temp comment - here to stop constant repos getting redone
 test_repo = git.Repo("testRepo")
 
 test_repo.clone("../nestedDir")
 #^ remember to delete the tests of these
-
+"""
 brkpnt = True
 
 
-#dataPath = pathlib.Path("testRepo")
 
 
 """
