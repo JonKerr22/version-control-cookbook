@@ -16,6 +16,9 @@ arr = np.array([1,2,3,4,5])
 #print(arr)
 
 ms = True
+testUser = User()
+testCookbook = UserCookBook()
+testRecipe = FullRecipe()
 print("hello world")
 
 

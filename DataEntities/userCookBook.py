@@ -16,3 +16,8 @@ class UserCookBook:
         self.allRecipes = []
         self.allRecipes.append(FullRecipe())
         self.createdDate = datetime.now()
+
+    def AddRecipeToCookBook(self, newRecipeObj):
+        self.allRecipes.append(newRecipeObj)
+
+    
