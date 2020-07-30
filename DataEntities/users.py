@@ -36,10 +36,13 @@ class User:
         cookbookObj.userId = self.userId
         self.userCookbooks.append(cookbookObj)
 
+    def UpdateCookBook(self, updatedCookbookObj):
+        for book in self.userCookbooks:
+            if(book.cookbookId == updatedCookbookObj.cookbookId):
+                book = updatedCookbookObj
+
+        return self
     def GetInitialEmptyCookBook(self):
-        emptyCookBook = UserCookBook()
-        emptyCookBook.userId = self.userId
-        emptyCookBook.cookbookId = 1
-        emptyCookBook.createdDate = datetime.now()
+        emptyCookBook = UserCookBook(userId=self.userId, cookbookId=1)
         emptyCookBook.allRecipes = []
         return emptyCookBook

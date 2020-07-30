@@ -17,8 +17,11 @@ arr = np.array([1,2,3,4,5])
 
 ms = True
 testUser = User()
-testCookbook = UserCookBook()
-testRecipe = FullRecipe()
+emptyCookBook = testUser.GetACookBook(1) #magic number 1: i know for now first cookbook id is 1
+emptyFirstRecipe = FullRecipe(emptyCookBook.cookbookId, 1) #magic number 1: just test id for now
+emptyFirstRecipe.CreateFirstRecipeVersion("meatballs", "meat, salt, pepper, breadcrumbs, egg")
+emptyCookBook.AddRecipeToCookBook(emptyFirstRecipe)
+testUser.UpdateCookBook(emptyCookBook)
 print("hello world")
 
 
