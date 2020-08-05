@@ -10,6 +10,7 @@ from DataEntities.users import User
 from DataEntities.userCookBook import UserCookBook
 from DataEntities.fullRecipe import FullRecipe
 from DataEntities.recipeEntry import RecipeEntry
+from Services.fileServices import *
 
 
 arr = np.array([1,2,3,4,5])
@@ -22,6 +23,8 @@ emptyFirstRecipe = FullRecipe(emptyCookBook.cookbookId, 1) #magic number 1: just
 emptyFirstRecipe.CreateFirstRecipeVersion("meatballs", "meat, salt, pepper, breadcrumbs, egg")
 emptyCookBook.AddRecipeToCookBook(emptyFirstRecipe)
 testUser.UpdateCookBook(emptyCookBook)
+GenerateFileForEntry(emptyFirstRecipe.allEntries[0])    #remember for now delete this after createed, but it works
+                                                        #will need to pass a user path still, and also tie this into making it a git repo
 print("hello world")
 
 
