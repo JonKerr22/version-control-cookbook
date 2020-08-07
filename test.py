@@ -5,6 +5,7 @@ sys.path.append('../')
 import numpy as np
 import git 
 import pathlib
+import random
 
 from DataEntities.users import User
 from DataEntities.userCookBook import UserCookBook
@@ -13,17 +14,25 @@ from DataEntities.recipeEntry import RecipeEntry
 from Services.fileServices import *
 
 
-arr = np.array([1,2,3,4,5])
+#arr = np.array([1,2,3,4,5])
 #print(arr)
 
+test_repo = git.Repo("testRepo")
+
 ms = True
-testUser = User()
-emptyCookBook = testUser.GetACookBook(1) #magic number 1: i know for now first cookbook id is 1
-emptyFirstRecipe = FullRecipe(emptyCookBook.cookbookId, 1) #magic number 1: just test id for now
-emptyFirstRecipe.CreateFirstRecipeVersion("meatballs", "meat, salt, pepper, breadcrumbs, egg")
-emptyCookBook.AddRecipeToCookBook(emptyFirstRecipe)
-testUser.UpdateCookBook(emptyCookBook)
-GenerateFileForEntry(emptyFirstRecipe.allEntries[0])    #remember for now delete this after createed, but it works
+genUserId = random.randint(1, 1000000000)
+testUser = User(genUserId, "ctor Username", "goodemail@email.website")
+
+testCookBook = testUser.GetACookBook(1) #magic number 1: i know for now first cookbook id is 1
+testRecipe = FullRecipe(testCookBook.cookbookId, 1) #magic number 1: just test id for now
+testRecipe.CreateFirstRecipeVersion("meatballs", "meat, salt, pepper, breadcrumbs, egg")
+testCookBook.AddRecipeToCookBook(testRecipe)
+testUser.UpdateCookBook(testCookBook)
+
+userRepoPath = "newUserRepos/"
+GenerateUserDirectory(testUser, userRepoPath)
+userDirPath = userRepoPath+ "users/" + str(testUser.userId) + "/"
+GenerateRecipeFileForEntry(testRecipe, userDirPath)    #remember for now delete this after createed, but it works
                                                         #will need to pass a user path still, and also tie this into making it a git repo
 print("hello world")
 

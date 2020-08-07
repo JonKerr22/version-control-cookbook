@@ -16,10 +16,10 @@ class User:
 
         will almost definitely need more in the future
     """
-    def __init__(self):
-        self.userId = 0
-        self.username = "Test User"
-        self.email = "test@example.com"
+    def __init__(self, userIdNum=None, userName=None, userEmail=None):
+        self.userId = userIdNum if not None else 0
+        self.username = userName if not None else "Test User"
+        self.email = userEmail if not None else "test@example.com"
         self.password = ""
         self.userCookbooks = [self.GetInitialEmptyCookBook()]
         self.createdDate = datetime.now()
@@ -29,6 +29,13 @@ class User:
             if(book.cookbookId == cookbookId):
                 return book
         return None #returns empty if user does not contain a book with that id
+
+    def GetAllUserCookBookIds(self, asStr = False):
+        outList = []
+        for cookBook in self.userCookbooks:
+            id = str(cookBook.cookbookId ) if asStr else cookBook.cookbookId
+            outList.append(id)
+        return outList
 
     def AddExistingCookbook(self, cookbookObj):
         if(cookbookObj.cookbookId == 0 or cookbookObj.cookbookId is None):
