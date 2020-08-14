@@ -28,7 +28,7 @@ def GenerateUserDirectory(user: User, dirPath: str):
         os.makedirs(dirPath+userPath)
         print("new repo for user: " + str(user.userId)) #TEMP - hey this maybe not to keep forver, but def for now
     userFileName = "userInfo.txt"
-    userFileContent = user.username + "\n" + user.email + "\n" + "cookbooks: " + ",".join(user.GetAllUserCookBookIds(True)) + "\n"
+    userFileContent = user.username + "\n" + user.email + "\n" + "recipeIds: " + ",".join(user.GetAllRecipeIds(True)) + "\n"
     file = open(dirPath+userPath+userFileName, "w+")
     file.write(userFileContent)
 

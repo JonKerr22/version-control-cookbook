@@ -8,7 +8,6 @@ import pathlib
 import random
 
 from DataEntities.users import User
-from DataEntities.userCookBook import UserCookBook
 from DataEntities.fullRecipe import FullRecipe
 from DataEntities.recipeEntry import RecipeEntry
 from Services.fileServices import *
@@ -20,20 +19,26 @@ from Services.fileServices import *
 test_repo = git.Repo("testRepo")
 
 ms = True
+
+#hey these are gitignored files for now, don't need all that garbage in my github
+testUserPath1 = "newUserRepos/users/271444183"
+testUserPath2 = "newUserRepos/users/953598005"
+
+#""" temp comment - here to stop constant repos getting redone
 genUserId = random.randint(1, 1000000000)
 testUser = User(genUserId, "ctor Username", "goodemail@email.website")
 
-testCookBook = testUser.GetACookBook(1) #magic number 1: i know for now first cookbook id is 1
-testRecipe = FullRecipe(testCookBook.cookbookId, 1) #magic number 1: just test id for now
+testRecipe = FullRecipe(genUserId, 1) #magic number 1: just test id for now
 testRecipe.CreateFirstRecipeVersion("meatballs", "meat, salt, pepper, breadcrumbs, egg")
-testCookBook.AddRecipeToCookBook(testRecipe)
-testUser.UpdateCookBook(testCookBook)
+
 
 userRepoPath = "newUserRepos/"
 GenerateUserDirectory(testUser, userRepoPath)
 userDirPath = userRepoPath+ "users/" + str(testUser.userId) + "/"
 GenerateRecipeFileForEntry(testRecipe, userDirPath)    #remember for now delete this after createed, but it works
                                                         #will need to pass a user path still, and also tie this into making it a git repo
+
+#"""
 print("hello world")
 
 

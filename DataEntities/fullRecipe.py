@@ -7,13 +7,13 @@ class FullRecipe:
     """
     schema:
         recipeId = int
-        cookbookId = int
+        userId = int
         allEntries = list with RecipieEntry type in it - not stored in DB, use a procedure to get list from id to generate
         createdDate = dateTime        
     """
-    def __init__(self, cookbookId=None, recipeId=None):
+    def __init__(self, userId=None, recipeId=None):
         self.recipeId = recipeId if not None else 0
-        self.cookbookId = cookbookId if not None else 0
+        self.userId = userId if not None else 0
         self.allEntries = []
         self.allEntries.append(RecipeEntry()) #init list with one entry
         self.createdDate = datetime.now()
