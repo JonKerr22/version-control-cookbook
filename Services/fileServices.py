@@ -20,6 +20,8 @@ def GenerateRecipeFileForEntry(recipe: FullRecipe, filePath: str):
 
     file.close()
 
+    CommitRecipeUserRepo(filePath, "adds/updates recipe")
+
 def GenerateUserDirectory(user: User, dirPath: str):
     userPath = "users/" + str(user.userId) + "/"
     if not os.path.exists(dirPath+userPath):
