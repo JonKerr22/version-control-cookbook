@@ -24,6 +24,11 @@ ms = True
 testUserPath1 = "newUserRepos/users/271444183"
 testUserPath2 = "newUserRepos/users/953598005"
 
+userTestRepo1 = git.Repo(testUserPath1)
+testCommits1 = list(userTestRepo1.iter_commits())
+userTestRepo2 = git.Repo(testUserPath2)
+testCommits2 = list(userTestRepo2.iter_commits()) #so 0th commit is most recent
+
 #""" temp comment - here to stop constant repos getting redone
 genUserId = random.randint(1, 1000000000)
 testUser = User(genUserId, "ctor Username", "goodemail@email.website")
@@ -33,9 +38,9 @@ testRecipe.CreateFirstRecipeVersion("meatballs", "meat, salt, pepper, breadcrumb
 
 
 userRepoPath = "newUserRepos/"
-GenerateUserDirectory(testUser, userRepoPath)
+#GenerateUserDirectory(testUser, userRepoPath)
 userDirPath = userRepoPath+ "users/" + str(testUser.userId) + "/"
-GenerateRecipeFileForEntry(testRecipe, userDirPath)    #remember for now delete this after createed, but it works
+#GenerateRecipeFileForEntry(testRecipe, userDirPath)    #remember for now delete this after createed, but it works
                                                         #will need to pass a user path still, and also tie this into making it a git repo
 
 #"""

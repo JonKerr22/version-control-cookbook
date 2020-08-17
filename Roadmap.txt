@@ -1,0 +1,21 @@
+This document is for planning purposes only
+
+State of app on 08/17/20
+- Have some file structure for entities and services
+- Can do basic intialization of a new user and first recipe
+    - This includes a new user directory and txt files for user info and recipes
+- Can access an existing user repo and view the commit messages
+- I can find an existing repo and clone it to a new directory
+
+Future TODOS
+- Need to connect to a front end using angular and flask (this should be broken down more)
+- Need to take compressed .git folder and generate user and recipe txt files from it (probably needs some more breakdown)
+- Need to be able to view changes for each recipe
+- Need to have multiple recipes with multiple changes for a single user
+    - Basically create a "git log" equivalent on a single file
+- Need some basic interaction with a users recipes
+    - Do a first iteration of this as a console app
+- In general should make a console app version of this before deploying to a local web app
+- If running as local web app works out fine, figure out deploying to a Docker container
+    - Docker container should fit into an AWS deploying process well
+    - Will need a lot of front end work for local web app before deploying

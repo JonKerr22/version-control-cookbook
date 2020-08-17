@@ -5,6 +5,7 @@ import os
 import io
 
 import git 
+from DataEntities.users import User
 
 #Just a wrapper for gitpython
 def InitNewUserRepo(fullDirPath: str, userInfoFileName: str):
@@ -21,4 +22,9 @@ def CommitRecipeUserRepo(fullDirPath: str, commitMsg: str):
             userRepo.index.add(ufile)
 
     userRepo.index.commit(commitMsg)
+    bkpnt = True
+
+
+def GenerateRepoFromDotGit(repoPath: str, user: User):
+    #TODO - use user obj as authenitcation and authorization before generating stuff
     bkpnt = True
