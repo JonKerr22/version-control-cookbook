@@ -42,10 +42,7 @@ userRepoPath = "newUserRepos/"
 userDirPath = userRepoPath+ "users/" + str(testUser.userId) + "/"
 #GenerateRecipeFileForEntry(testRecipe, userDirPath)    #remember for now delete this after createed, but it works
                                                         #will need to pass a user path still, and also tie this into making it a git repo
-
 #"""
-print("hello world")
-
 
 """ temp comment - here to stop constant repos getting redone
 test_repo = git.Repo("testRepo")
